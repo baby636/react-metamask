@@ -21,13 +21,15 @@
     "lint": "eslint",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepare": "yarn run build",
+    "prepare": "yarn run snyk-protect && yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "@snyk/protect": "latest"
   },
   "peerDependencies": {
     "react": "^16.8.3",
@@ -52,5 +54,6 @@
     "rollup": "^1.16.6",
     "rollup-plugin-babel": "^4.3.3",
     "web3": "=1.0.0-beta.37"
-  }
+  },
+  "snyk": true
 }
